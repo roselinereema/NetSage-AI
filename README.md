@@ -1,4 +1,4 @@
-# ✨ aiNOC
+# ✨ NetSage
 
 [![Version](https://img.shields.io/badge/version-5.5.0-1a1a2e)](https://github.com/pdudotdev/aiNOC/releases/tag/5.5.0)
 ![License](https://img.shields.io/badge/license-GPLv3-1a1a2e)
