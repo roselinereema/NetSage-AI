@@ -1,0 +1,30 @@
+mcp/
+.env
+*.pyc
+*.log
+**/.git/
+__pycache__/
+clab-ainoc/
+quickie/
+.MCPServer.py.swp
+testing/agent-testing/integration/test_mcp_tools_results.md
+testing/agent-testing/platform_tests/platform_coverage_results.md
+
+# Private keys and certificates — never commit to any repository
+# (clab-ainoc/ is already ignored above; this covers any stray key files)
+*.key
+*.pem
+*.pfx
+*.p12
+
+# On-call watcher operational state — runtime-only, never commit
+oncall/oncall.lock
+
+# Per-session agent output logs — runtime-only, never commit
+logs/session-*.md
+
+# Manual test trace results — per-run artifacts, never commit
+testing/manual_results/
+
+# Discord approval runtime state — runtime-only, never commit
+data/
