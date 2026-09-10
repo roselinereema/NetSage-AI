@@ -1,8 +1,10 @@
-# ✨ NetSage
+# ✨ NetSage AI
 
-[![Version](https://img.shields.io/badge/version-5.5.0-1a1a2e)](https://github.com/pdudotdev/aiNOC/releases/tag/5.5.0)
+[![Version](https://img.shields.io/badge/version-5.5.0-1a1a2e)](https://github.com/roselinereema/NetSage-AI)
 ![License](https://img.shields.io/badge/license-GPLv3-1a1a2e)
-[![Last Commit](https://img.shields.io/github/last-commit/pdudotdev/aiNOC?color=1a1a2e)](https://github.com/pdudotdev/aiNOC/commits/main/)
+[![Last Commit](https://img.shields.io/github/last-commit/roselinereema/NetSage-AI?color=1a1a2e)](https://github.com/roselinereema/NetSage-AI/commits/main/)
+
+> **NetSage AI** is an AI-assisted network troubleshooting framework designed to investigate network incidents, analyze network evidence, identify likely root causes, recommend troubleshooting actions, and keep a human operator in the approval loop before configuration changes are applied.
 
 | | |
 |---|---|
@@ -13,236 +15,109 @@
 | | **On-Request** |
 | **Vendors** | ![Arista EOS](https://img.shields.io/badge/Arista_EOS-1e88e5) ![Juniper JunOS](https://img.shields.io/badge/Juniper_JunOS-1e88e5) ![Aruba AOS-CX](https://img.shields.io/badge/Aruba_AOS--CX-1e88e5) ![SONiC FRR](https://img.shields.io/badge/SONiC_FRR-1e88e5) ![MikroTik RouterOS](https://img.shields.io/badge/MikroTik_RouterOS-1e88e5) ![VyOS](https://img.shields.io/badge/VyOS-1e88e5) |
 | **Management** | ![NETCONF](https://img.shields.io/badge/NETCONF-2196f3) ![REST APIs](https://img.shields.io/badge/REST_APIs-2196f3) ![gNMI](https://img.shields.io/badge/gNMI-2196f3) ![eAPI](https://img.shields.io/badge/eAPI-2196f3) |
-| **Integrations** | ![Slack](https://img.shields.io/badge/Slack-42a5f5) ![ServiceNow](https://img.shields.io/badge/ServiceNow-42a5f5)
-| | **Stats** |
-| **Performance** | ![MTTD](https://img.shields.io/badge/MTTD-4s-64b5f6) ![MTTR](https://img.shields.io/badge/MTTR-8min-64b5f6) ![Cost/Session](https://img.shields.io/badge/Avg.%20cost%2Fsession-%241.86-64b5f6) |
+| **Integrations** | ![Slack](https://img.shields.io/badge/Slack-42a5f5) ![ServiceNow](https://img.shields.io/badge/ServiceNow-42a5f5) |
+| | **Monitoring** |
+| **Human Review** | Human-in-the-loop approval for configuration changes |
+| **Dashboard** | Web dashboard for agent and troubleshooting monitoring |
 
-## 📖 **Table of Contents**
-- 📜 **aiNOC**
+---
+
+## 📖 Table of Contents
+
+- 📜 **NetSage AI**
   - [🔭 Overview](#-overview)
-  - [🍀 Here's a Quick Demo](#-heres-a-quick-demo)
-  - [⭐ What's New in v5.5](#-whats-new-in-v55)
+  - [🍀 Quick Demo](#-quick-demo)
+  - [⭐ Key Features](#-key-features)
   - [⚒️ Current Tech Stack](#️-current-tech-stack)
   - [📋 Supported Vendors](#-supported-vendors)
   - [🚛 Supported Transports](#-supported-transports)
   - [🎓 Troubleshooting Scope](#-troubleshooting-scope)
   - [🛠️ Installation & Usage](#️-installation--usage)
   - [🔄 Test Network Topology](#-test-network-topology)
-  - [📞 aiNOC Service Mode](#-ainoc-service-mode)
+  - [📞 NetSage AI Service Mode](#-netsage-ai-service-mode)
+  - [👤 Human-in-the-Loop Review](#-human-in-the-loop-review)
+  - [📊 Dashboard](#-dashboard)
+  - [📁 Project Structure](#-project-structure)
   - [⬆️ Planned Upgrades](#️-planned-upgrades)
   - [♻️ Repository Lifecycle](#️-repository-lifecycle)
+  - [🙏 Attribution](#-attribution)
   - [📄 Disclaimer](#-disclaimer)
   - [📜 License](#-license)
-  - [📧 Hi](#-hi)
+
+---
 
 ## 🔭 Overview
-AI-based **network troubleshooting framework** for multi-vendor, multi-protocol, multi-area/multi-AS enterprise networks.
 
-▫️ **Key characteristics:**
+NetSage AI is an AI-assisted **network troubleshooting framework** for investigating network incidents across multi-vendor, multi-protocol and multi-area/multi-AS enterprise environments.
+
+The system is designed to help a network operator move from a network symptom to an evidence-based diagnosis and recommended remediation.
+
+### Key Characteristics
+
+- [x] **AI-assisted network troubleshooting**
 - [x] **Multi-vendor support**
 - [x] **Multi-protocol, L2/L3**
 - [x] **Multi-area/multi-AS**
-- [x] **CLI/RESTCONF (Core)**
-- [x] **NETCONF/REST/gNMI/eAPI**
-- [x] **15 MCP tools, 4 skills**
-- [x] **12 operational guardrails**
-- [x] **HITL for any config changes**
+- [x] **CLI/RESTCONF management**
+- [x] **NETCONF/REST/gNMI/eAPI support**
+- [x] **MCP tools**
+- [x] **Troubleshooting skills**
+- [x] **Operational guardrails**
+- [x] **Human-in-the-loop approval for configuration changes**
 - [x] **Dashboard for agent monitoring**
 - [x] **Discord integration**
 - [x] **Jira integration**
-- [x] **HashiCorp Vault**
-- [x] **NetBox**
+- [x] **HashiCorp Vault integration**
+- [x] **NetBox integration**
 
-▫️ **Core vs. On-Request features**:
-- [x] **Core**: 
-  - Easy to integrate in Cisco IOS/IOS-XE environments
-  - CLI, RESTCONF management, OSPF/BGP troubleshooting
-  - Jira, Discord, NetBox, HashiCorp Vault integration
-- [x] **On-Request**: 
-  - Custom vendor modules (Arista, Juniper, MikroTik, etc.)
-  - Custom management (REST APIs, NETCONF, gNMI, eAPI) 
-  - Built and adapted per client's network environment
+### Core Features
 
-▫️ **aiNOC operating mode in v5.0+**:
-- [x] See [**aiNOC Service Mode**](#-ainoc-service-mode)
+- Easy integration with Cisco IOS/IOS-XE environments
+- CLI and RESTCONF management
+- OSPF and BGP troubleshooting
+- Jira integration
+- Discord integration
+- NetBox integration
+- HashiCorp Vault integration
 
-▫️ **Important project files**:
-- [x] See [**file roles**](metadata/about/file_roles.md)
+### On-Request Features
 
-▫️ **Agent guardrails list**:
-- [x] See [**guardrails**](metadata/about/guardrails.md)
+- Custom vendor modules
+- Custom management integrations
+- Custom network architectures
+- Environment-specific adaptations
 
-▫️ **Recommended models**:
-- [x] Opus 4.6+ (1M)
+---
 
-⚠️ **NOTE:** Due to the intermittent nature of troubleshooting, it's worth using an advanced model by default. Costs won't become unsustainable even if addressing and fixing several issues per day.
+## 🍀 Quick Demo
 
-▫️ **Set your default model**:<br/>
-Create `settings.json` under `.claude/`:
-```
-{
-  "model":"opus",
-  "effortLevel":"medium"
-}
-```
+NetSage AI provides an AI-assisted workflow for investigating network incidents.
 
-▫️ **High-level architecture:**
+The general troubleshooting workflow is:
 
-![arch](metadata/topology/ARCHv5.png)
-
-## 🍀 Here's a Quick Demo
-- [x] See a [**DEMO**](https://www.youtube.com/watch?v=w5E-MTINkyU) of **aiNOC v5.5**
-
-## ⭐ What's New in v5.5
-- [x] See [**changelog.md**](changelog.md)
-
-## ⚒️ Core Tech Stack
-
-| Tool |   |
-|------|---|
-| Claude Code | ✓ |
-| MCP (FastMCP) | ✓ |
-| Python | ✓ |
-| Scrapli | ✓ |
-| Genie | ✓ |
-| RESTCONF | ✓ |
-| Jira API | ✓ |
-| Discord API | ✓ |
-| HashiCorp Vault | ✓ |
-| NetBox | ✓ |
-| Vector | ✓ |
-| Ubuntu | ✓ |
-
-## 📋 Supported Vendors
-
-| Vendor | Platform | cli_style | Status |
-|--------|----------|-----------|--------|
-| Cisco | IOS-XE | `ios` | Core |
-| Arista | EOS | `eos` | On-Request |
-| Juniper | JunOS | `junos` | On-Request |
-| MikroTik | RouterOS | `routeros` | On-Request |
-| Aruba | AOS-CX | `aos` | On-Request |
-| SONiC | FRR | `frr` | On-Request |
-| VyOS | VyOS | `vyos` | On-Request |
-
-## 🚛 Supported Transports
-
-| Management | Devices | Tier | Status |
-|-----------|---------|------|--------|
-| RESTCONF | Cisco IOS-XE | Primary | Core |
-| CLI | Cisco IOS-XE | Fallback | Core |
-| NETCONF | custom | — | On-Request |
-| REST APIs | custom | — | On-Request |
-| gNMI | custom | — | On-Request |
-| eAPI | Arista | — | On-Request |
-
-## 🎓 Troubleshooting Scope
-
-| aiNOC Core |
-|----------|
-| **OSPF** |
-| **BGP**  | 
-| **Redistribution** | 
-| **Policy-based routing**|
-| **Route-maps, prefix lists** |
-| **NAT/PAT, access lists** |
-
-| aiNOC On-Request Extensions |
-|----------|
-| **EIGRP** |
-| **HSRP** | 
-| **VRRP** |
-| *etc.* |
-
-## 🛠️ Installation & Usage
-▫️ **Step 1**:
-```
-git clone https://github.com/pdudotdev/aiNOC/
-cd aiNOC/
-python3 -m venv mcp
-source mcp/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-▫️ **Step 2**:
-Review `CLAUDE.md` and `skills/*/SKILL.md` for the troubleshooting methodology, tool descriptions, and operational guidelines. For your own deployment, customize these files for your specific topology, vendor combination, and architecture.
-
-▫️ **Step 3**:
-- Configure IP SLA (or Connectivity Monitor, Netwatch etc.) paths in your network
-- Make sure they are being tracked and logged remotely to **Vector** (Syslog)
-- Configure the transforms inside `/etc/vector/vector.yaml` - [**example**](metadata/about/vector.yaml)
-- aiNOC monitors Vector's `/var/log/network.json` file for specific logs and parses them per-vendor
-
-▫️ **Step 4**:
-Run the **aiNOC** watcher and dashboard services. 
-Claude is invoked non-interactively via **tmux + print mode** (`-p`) with a default prompt template. 
-The human operator monitors agent operations via the **web dashboard on <IP>:5555**, and interacts via **Discord** (fix approval ✅ or rejection ❌ embeds).
-
-```
-sudo apt install tmux
-sudo cp oncall/oncall-watcher.service /etc/systemd/system/
-sudo cp dashboard/oncall-dashboard.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now oncall-watcher.service
-sudo systemctl enable --now oncall-dashboard.service
-```
-Manage with:
-`systemctl start | stop | restart | status oncall-watcher`
-
-▫️ **Step 5**:
-Check if the **service** and **Vector** are running:
-```
-sudo systemctl status vector
-sudo systemctl status oncall-watcher.service
-sudo systemctl status oncall-dashboard.service
-```
-
-## 🔄 Test Network Topology
-▫️ **Network diagram**:
-
-![topology](metadata/topology/TOPOLOGY-v5.0.png)
-
-▫️ **Router configurations:**
-- [x] Please find my test lab's config files under the [**lab_configs**](https://github.com/pdudotdev/aiNOC/tree/main/lab_configs) directory
-- [x] They are the network's fallback configs for `containerlab redeploy -t AINOC-TOPOLOGY.yml`
-- [x] Default credentials: see **.env** file at [**.env.example**](.env.example)
-
-## 📞 aiNOC Service Mode
-
-aiNOC runs as an **on-call watcher** that monitors Vector's `/var/log/network.json` for SLA path failures and automatically invokes a Claude agent to diagnose the issue and propose a fix.
-
-### How It Works
-
-1. Network devices track connectivity paths (Cisco **IP SLA** — extensible to Arista Connectivity Monitor, Juniper RPM probes, MikroTik Netwatch etc.)
-2. Failures are logged remotely to **Syslog** → **Vector** records, parses, and writes to `/var/log/network.json`
-3. `oncall-watcher` service detects the SLA failure, opens a **Jira** ticket, and invokes the **aiNOC agent** session
-4. **Web dashboard** is activated and displays agent's work in real time. User is notified and kept in the loop via **Discord**.
-5. Agent follows structured troubleshooting methodology: `CLAUDE.md` + `/skills` + `MCP tools` → identifies root cause(s) → proposes fix
-6. Only upon **human operator approval** via Discord, the agent applies and verifies the fix, otherwise issue is documented and the case stays open
-7. Case resolution is logged to **Jira** and **Discord**, and the watcher resumes monitoring
-8. aiNOC agent learns a new lesson about network troubleshooting and documents to `lessons.md`
-
-See [**Installation & Usage**](#️-installation--usage) for instructions.
-
-## ⬆️ Planned Upgrades
-- [ ] New protocols supported
-- [ ] Performance-based SLAs
-
-## ♻️ Repository Lifecycle
-**New features** are being added periodically (protocols, integrations, optimizations).
-
-**Stay up-to-date**:
-- [x] **Watch** and **Star** this repository
-
-**Current version**:
-- [x] **aiNOC v5.5**
-
-## 📄 Disclaimer
-You are responsible for defining your own troubleshooting methodologies and context files, as well as building your own test environment and meeting the necessary conditions (e.g., RAM/CPU, Claude subscription/API key, etc.).
-
-## 📜 License
-Licensed under the [**GNU General Public License v3.0**](LICENSE).
-
-## 📧 Hi
-Wanna say hello? Send me a DM at [**LinkedIn**](https://www.linkedin.com/in/tmihaicatalin/)
+```text
+Network Incident
+       |
+       v
+Evidence Collection
+       |
+       v
+AI Investigation
+       |
+       v
+Root Cause Analysis
+       |
+       v
+Recommended Fix
+       |
+       v
+Human Review
+     /     \
+    /       \
+Approve     Reject
+   |           |
+   v           v
+Apply Fix    Keep Case Open
+   |
+   v
+Verification
